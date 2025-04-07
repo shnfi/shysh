@@ -4,3 +4,4 @@
 <p>[3] [INIT] - init include/ directory</p>
 <p>[4] [INIT] - init utils/ directory</p>
 <p>[5] [INIT] - init README.md</p>
+<p>[6] [INIT] - init scripts/ directory</p>
