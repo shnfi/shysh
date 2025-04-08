@@ -14,6 +14,8 @@ char **token_sep(unsigned char *cmd, unsigned int *s)
 		tokens[i] = malloc(10);
 
 	for (int i = 0; i < len(cmd); i++) {
+		if (k == 0 && cmd[i] == ' ')
+			continue;
 		if (cmd[i] != ' ') {
             tokens[j][k] = cmd[i];
             k++;
