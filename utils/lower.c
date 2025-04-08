@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "len.h"
 
-char *lower(char *str)
+char *lower(const char *str)
 {
 	char *out = malloc(len(str));
 	int j = 0;

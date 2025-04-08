@@ -1,6 +1,6 @@
 #ifndef LOWERCASE_H
 #define LOWERCASE_H
 
-char *lower(char *str);
+char *lower(const char *str);
 
 #endif
