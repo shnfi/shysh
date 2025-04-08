@@ -11,7 +11,10 @@
 #include <sys/wait.h>
 
 #include "../utils/len.h"
+
 #include "../include/token_sep.h"
+#include "../include/executor.h"
+#include "../utils/strip.h"
 
 #define DEFAULT_UN "shyshUser"
 #define SETUP_PROMPT(un, priv) un, priv
@@ -52,8 +55,17 @@ int main(void)
 
 		strip_nl(ustng.cmd);
 
-		unsigned int size = 0;
+	 	unsigned int size = 0;
 		char **tokens = token_sep(ustng.cmd, &size);
+
+		char *prog = tokens[0];
+		char **switches = malloc(20 * sizeof(char *));
+		for (int i = 1; i < size; i++) {
+			switches[i - 1] = malloc(20);
+			switches[i - 1] = tokens[i];
+		}
+		
+		exec(prog, (const char **) switches, size - 1);
 	}
 
 	free(ustng.cmd);
