@@ -14,7 +14,6 @@
 
 #include "../include/token_sep.h"
 #include "../include/executor.h"
-#include "../utils/strip.h"
 
 #define DEFAULT_UN "shyshUser"
 #define SETUP_PROMPT(un, priv) un, priv
