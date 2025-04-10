@@ -1,3 +1,3 @@
 #!/bin/bash
 
-gcc src/*.c utils/*.c -o shysh
+gcc src/*.c builtins/*.c utils/*.c -o shysh
