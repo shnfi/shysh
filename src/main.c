@@ -64,7 +64,8 @@ int main(void)
 			switches[i - 1] = tokens[i];
 		}
 		
-		exec(prog, (const char **) switches, size - 1);
+		if (!exec(prog, (const char **) switches, size - 1))
+			break;
 	}
 
 	free(ustng.cmd);
