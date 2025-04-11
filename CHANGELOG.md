@@ -10,3 +10,10 @@
 <p>[9] [NEW_FEATURE] - wrote a helper function to turn a string to lowercase</p>
 <p>[10] [BUG_FIXED] - fixed the bug of that related to the left side white space of the cmd</p>
 <p>[11] [REMOVED_WARN] - removed the warning related to the const qualifier</p>
+<p>[12] [INIT] - executor init</p>
+<p>[13] [NEW_UTIL] - wrote str_comp() helper function</p>
+<p>[14] [BUG_FIXED] - fixed the bug of the compile.sh script related to the compiling builtin commands</p>
+<p>[15] [NEW_CMD] - exit() builtin command init</p>
+<p>[16] [MODIFICATION] - removed the strip.h inclusion in the main.c</p>
+<p>[17] [NEW_CMD] - echo() builtin command init</p>
+<p>[18] [NEW_UTIL] - wrote join() helper function</p>
