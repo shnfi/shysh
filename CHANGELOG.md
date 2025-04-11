@@ -17,3 +17,6 @@
 <p>[16] [MODIFICATION] - removed the strip.h inclusion in the main.c</p>
 <p>[17] [NEW_CMD] - echo() builtin command init</p>
 <p>[18] [NEW_UTIL] - wrote join() helper function</p>
+<p>[19] [REMOVED] - deleted and removed exit builtin command</p>
+<p>[20] [MODIFICATION] - changed the executor logic to avoid mamory leak</p>
+<p>[21] [MODIFICATION] - changed the return type of the executor</p>
