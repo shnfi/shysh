@@ -42,11 +42,12 @@ typedef struct user_stct {
 	unsigned int priv;
 	unsigned char *un;
 	unsigned char *cmd;
+	unsigned char *dir;
 } uinfo;
 
 int main(void)
 {
-	uinfo ustng = { 1, DEFAULT_UN, malloc(MAX_CMD_BUFF) };
+	uinfo ustng = { 1, DEFAULT_UN, malloc(MAX_CMD_BUFF), getcwd(NULL, 1024) };
 
 	while (1) {
 		printf("%s%s ", SETUP_PROMPT(ustng.un, PRIV(ustng.priv) == "super user" ? "#" : "$"));
@@ -64,7 +65,7 @@ int main(void)
 			switches[i - 1] = tokens[i];
 		}
 		
-		if (!exec(prog, (const char **) switches, size - 1))
+		if (!exec(prog, (const char **) switches, size - 1, ustng.dir))
 			break;
 	}
 
