@@ -7,8 +7,13 @@
 #include "../utils/join.h"
 
 #include "../builtins/echo.h"
+#include "../builtins/clear.h"
+#include "../builtins/ls.h"
+#include "../builtins/cd.h"
+#include "../builtins/cd.h"
+#include "../builtins/pwd.h"
 
-int exec(const char *prog, const char **switches, const unsigned int s)
+int exec(const char *prog, const char **switches, const unsigned int s, unsigned char *dir)
 {
 	const char *ABSS = proc_switches(switches, s);
 
@@ -27,6 +32,14 @@ int exec(const char *prog, const char **switches, const unsigned int s)
 
 	if (str_comp(opt_cmd, "echo"))
 		echo(join(switches, s));
+	else if (str_comp(opt_cmd, "clear"))
+		clear();
+	else if (str_comp(opt_cmd, "ls"))
+		ls(ABSS, dir);
+	else if (str_comp(opt_cmd, "cd"))
+		cd(dir, join(switches, s));
+	else if (str_comp(opt_cmd, "pwd"))
+		pwd(dir);
 	else  
 		printf("INVALID COMMAND!\n");
 	
