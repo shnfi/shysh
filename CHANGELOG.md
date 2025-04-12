@@ -20,3 +20,11 @@
 <p>[19] [REMOVED] - deleted and removed exit builtin command</p>
 <p>[20] [MODIFICATION] - changed the executor logic to avoid mamory leak</p>
 <p>[21] [MODIFICATION] - changed the return type of the executor</p>
+<p>[22] [NEW_CMD] - clear() builtin command init</p>
+<p>[23] [CMD_SUP] - added the 'dir' argument and added clear, ls, cd and pwd commands</p>
+<p>[24] [NEW_FEATURE] - added the 'dir' variable to the 'uinfo' struct</p>
+<p>[25] [BUG_FIXED] - fixed the bug in join util: one additional space at the end of the string</p>
+<p>[26] [NEW_CMD] - cd builtin command init</p>
+<p>[27] [NEW_CMD] - ls builtin command init</p>
+<p>[28] [NEW_CMD] - pwd builtin command init</p>
+<p>[29] [NEW_UTIL] - wrote str_cpy() helper function</p>
