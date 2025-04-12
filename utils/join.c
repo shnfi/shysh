@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include "join.h"
 
@@ -13,8 +14,10 @@ char *join(const char **arr, const unsigned int s)
 			out[k] = arr[i][j];
 			k++;
 		}
-		out[k] = ' ';
-		k++;
+		if (i != s - 1) {
+			out[k] = ' ';
+			k++;
+		}
 	}
 
 	return out;
