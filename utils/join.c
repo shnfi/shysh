@@ -3,10 +3,11 @@
 #include "join.h"
 
 #include "len.h"
+#include "arr_len.h"
 
 char *join(const char **arr, const unsigned int s)
 {
-	char *out = malloc(1000); // change the value later, i hope you don't forget
+	char *out = malloc(arr_len(arr, s));
 	unsigned int k = 0;
 
 	for (int i = 0; i < s; i++) {
