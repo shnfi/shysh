@@ -28,3 +28,11 @@
 <p>[27] [NEW_CMD] - ls builtin command init</p>
 <p>[28] [NEW_CMD] - pwd builtin command init</p>
 <p>[29] [NEW_UTIL] - wrote str_cpy() helper function</p>
+<p>[30] [BUG_FIXED] - fixed the buffer over flow problem of the cd builtin command</p>
+<p>[31] [UPDATE] - update .gitignore</p>
+<p>[32] [MODIFICATION] - removed the debbug line from the builtins/cd.c</p>
+<p>[33] [NEW_FEATURE] - added 'raw_cmd' parameter and 'BUFFER' macro to the executor function</p>
+<p>[34] [NEW_FEATURE] - added the feature to execute non-builtin commands</p>
+<p>[35] [NEW_FEATURE] - passing the 'ustng.cmd' strcuture variable to the executor function</p>
+<p>[36] [BUG_FIXED] - passed a compatible value to the malloc() function to allocate memory for join() function</p>
+<p>[37] [NEW_UTIL] - wrote arr_len() helper function</p>
