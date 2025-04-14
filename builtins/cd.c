@@ -9,9 +9,10 @@
 
 void cd(unsigned char *dir, const unsigned char *p)
 {
-	unsigned char *np = malloc(len(dir) + len(p));
+	unsigned char *np = malloc(len(dir) + len(p) + 10);
 	str_cpy(np, dir);
 	unsigned int j = 0;
+	printf("%d\n", len(dir) + len(p));
 
 	np[len(np)] = '/';
 
@@ -22,4 +23,6 @@ void cd(unsigned char *dir, const unsigned char *p)
 
 	chdir(np);
 	getcwd(dir, 1024);
+
+	free(np);
 }
