@@ -65,7 +65,7 @@ int main(void)
 			switches[i - 1] = tokens[i];
 		}
 		
-		if (!exec(prog, (const char **) switches, size - 1, ustng.dir))
+		if (!exec(ustng.cmd, prog, (const char **) switches, size - 1, ustng.dir))
 			break;
 	}
 
