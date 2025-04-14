@@ -54,7 +54,7 @@ int exec(const char *raw_cmd, const char *prog, const char **switches, const uns
 		}
 		else {
 			while(fgets(returning_output, BUFFER-1, output))
-		        printf("%s\n", returning_output);
+		        printf("%s", returning_output);
 		}
 	}
 	
