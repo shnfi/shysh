@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "../include/executor.h"
 #include "../utils/proc_switches.h"
@@ -13,7 +14,7 @@
 #include "../builtins/cd.h"
 #include "../builtins/pwd.h"
 
-int exec(const char *prog, const char **switches, const unsigned int s, unsigned char *dir)
+int exec(const char *raw_cmd, const char *prog, const char **switches, const unsigned int s, unsigned char *dir)
 {
 	const char *ABSS = proc_switches(switches, s);
 
@@ -40,8 +41,22 @@ int exec(const char *prog, const char **switches, const unsigned int s, unsigned
 		cd(dir, join(switches, s));
 	else if (str_comp(opt_cmd, "pwd"))
 		pwd(dir);
-	else  
-		printf("INVALID COMMAND!\n");
+	else {
+		char *returning_output = malloc(BUFFER);
+		FILE *output;
+		char string[BUFFER];
+
+		output = popen(raw_cmd, "r");
+
+		if (output == NULL) {
+		    printf("ERROR WHILE PREPARING THE PIPE\n");
+			return 1;
+		}
+		else {
+			while(fgets(returning_output, BUFFER-1, output))
+		        printf("%s\n", returning_output);
+		}
+	}
 	
 	return 1;
 }
