@@ -36,3 +36,4 @@
 <p>[35] [NEW_FEATURE] - passing the 'ustng.cmd' strcuture variable to the executor function</p>
 <p>[36] [BUG_FIXED] - passed a compatible value to the malloc() function to allocate memory for join() function</p>
 <p>[37] [NEW_UTIL] - wrote arr_len() helper function</p>
+<p>[38] [BUG_FIXED] - removed an additional \n in output of non-builtin commands</p>
