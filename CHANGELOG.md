@@ -39,3 +39,6 @@
 <p>[38] [BUG_FIXED] - removed an additional \n in output of non-builtin commands</p>
 <p>[39] [NEW_CMD] - wrote uptime builtin command</p>
 <p>[40] [NEW_CMD] - added uptime to the builtin command handler</p>
+<p>[41] [NEW_CMD] - added mkdir and touch to the builtin command handler</p>
+<p>[42] [NEW_CMD] - mkdir builtin command init</p>
+<p>[43] [NEW_CMD] - touch builtin command init</p>
