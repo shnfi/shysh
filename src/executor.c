@@ -13,6 +13,7 @@
 #include "../builtins/cd.h"
 #include "../builtins/cd.h"
 #include "../builtins/pwd.h"
+#include "../builtins/uptime.h"
 
 int exec(const char *raw_cmd, const char *prog, const char **switches, const unsigned int s, unsigned char *dir)
 {
@@ -41,6 +42,8 @@ int exec(const char *raw_cmd, const char *prog, const char **switches, const uns
 		cd(dir, join(switches, s));
 	else if (str_comp(opt_cmd, "pwd"))
 		pwd(dir);
+	else if (str_comp(opt_cmd, "uptime"))
+		uptime();
 	else {
 		char *returning_output = malloc(BUFFER);
 		FILE *output;
