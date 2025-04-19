@@ -42,3 +42,8 @@
 <p>[41] [NEW_CMD] - added mkdir and touch to the builtin command handler</p>
 <p>[42] [NEW_CMD] - mkdir builtin command init</p>
 <p>[43] [NEW_CMD] - touch builtin command init</p>
+<p>[44] [BUG_FIXED] - fixed the bug related to the header gaurd's macro of the touch builtin command</p>
+<p>[45] [BUG_FIXED] - added the touch buitin command to the executor (i forgot to do)</p>
+<p>[46] [NEW_CMD] - rm builtin command init</p>
+<p>[47] [LICENSE] - added MIT license to the proj</p>
+<p>[48] [MODIFICATION] - modified and changed the README</p>
