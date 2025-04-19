@@ -1,5 +1,5 @@
-#ifndef MKDIR_H
-#define MKDIR_H
+#ifndef TOUCH_H
+#define TOUCH_H
 
 void touch(const char *name, unsigned char *dir);
 
