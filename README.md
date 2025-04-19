@@ -1,7 +1,22 @@
-<h1 align="center">ShySh</h1>
-ShySh (shysh) is a more advanced version of the sshell, shell had many problems, like: <br>
-- no scroll. <br>
-- few commands to run becase of the lack of scroll. <br>
-- segmentation faults that occurs because of the bad C source (lack of experience). <br>
-- etc. <br>
-So, the new sshell, called shysh is gonna be way better, without those problems of sshell.
+# ShySh
+ShySh (shysh) is a more advanced version of the [sshell](https://github.com/shnfi/sshell), that had many problems, like:
+- No scroll
+- Few commands to run becase of the lack of scroll
+- Segmentation faults that occurs because of lack of experience
+- etc (read the sourse if you like)
+
+## How to use?
+```bash
+./scripts/compile.sh
+```
+Want to do this Manually? run do this:
+```bash
+gcc src/*.c builtins/*.c utils/*.c -o shysh
+```
+And then run the shell:
+```bash
+./shysh
+```
+
+## How it gonne be better
+So, the new [sshell](https://github.com/shnfi/sshell), called shysh, is gonna be way better, without those problems.
