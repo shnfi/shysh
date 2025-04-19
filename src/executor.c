@@ -15,6 +15,7 @@
 #include "../builtins/pwd.h"
 #include "../builtins/uptime.h"
 #include "../builtins/mkdir.h"
+#include "../builtins/touch.h"
 
 int exec(const char *raw_cmd, const char *prog, const char **switches, const unsigned int s, unsigned char *dir)
 {
@@ -47,6 +48,8 @@ int exec(const char *raw_cmd, const char *prog, const char **switches, const uns
 		uptime();
 	else if (str_comp(opt_cmd, "mkdir"))
 		mkdir_(join(switches, s), dir);
+	else if (str_comp(opt_cmd, "touch"))
+		touch(join(switches, s), dir);
 	else {
 		char *returning_output = malloc(BUFFER);
 		FILE *output;
