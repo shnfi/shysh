@@ -16,6 +16,7 @@
 #include "../builtins/mkdir.h"
 #include "../builtins/touch.h"
 #include "../builtins/rm.h"
+#include "../builtins/wizardsay.h"
 
 int exec(const char *raw_cmd, const char *prog, const char **switches, const unsigned int s, unsigned char *dir)
 {
@@ -52,6 +53,8 @@ int exec(const char *raw_cmd, const char *prog, const char **switches, const uns
 		touch(join(switches, s), dir);
 	else if (str_comp(opt_cmd, "rm"))
 		rm(join(switches, s), dir);
+	else if (str_comp(opt_cmd, "wizardsay"))
+		wizard_say(join(switches, s));
 	else {
 		char *returning_output = malloc(BUFFER);
 		FILE *output;
@@ -64,7 +67,7 @@ int exec(const char *raw_cmd, const char *prog, const char **switches, const uns
 			return 1;
 		}
 		else {
-			while(fgets(returning_output, BUFFER-1, output))
+			while (fgets(returning_output, BUFFER - 1, output))
 		        printf("%s", returning_output);
 		}
 	}
