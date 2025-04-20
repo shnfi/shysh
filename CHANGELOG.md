@@ -47,3 +47,4 @@
 <p>[46] [NEW_CMD] - rm builtin command init</p>
 <p>[47] [LICENSE] - added MIT license to the proj</p>
 <p>[48] [MODIFICATION] - modified and changed the README</p>
+<p>[49] [NEW_CMD] - wrote wizardsay builtin command</p>
