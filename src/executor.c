@@ -11,7 +11,6 @@
 #include "../builtins/clear.h"
 #include "../builtins/ls.h"
 #include "../builtins/cd.h"
-#include "../builtins/cd.h"
 #include "../builtins/pwd.h"
 #include "../builtins/uptime.h"
 #include "../builtins/mkdir.h"
