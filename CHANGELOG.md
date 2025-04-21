@@ -48,3 +48,8 @@
 <p>[47] [LICENSE] - added MIT license to the proj</p>
 <p>[48] [MODIFICATION] - modified and changed the README</p>
 <p>[49] [NEW_CMD] - wrote wizardsay builtin command</p>
+<p>[50] [NEW_FEATURE] - added 'pass' as a new user variable</p>
+<p>[51] [NEW_CMD] - wrote 'chpass' command to change password</p>
+<p>[52] [NEW_CMD] - wrote 'chuser' command to change username</p>
+<p>[53] [NEW_UTIL] - wrote a new helper function to ask for root password and validate it</p>
+<p>[54] [MODIFICATION] - allocate memory for 'un' user variable and pass it to the executor</p>
