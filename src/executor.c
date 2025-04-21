@@ -17,8 +17,9 @@
 #include "../builtins/touch.h"
 #include "../builtins/rm.h"
 #include "../builtins/wizardsay.h"
+#include "../builtins/chpass.h"
 
-int exec(const char *raw_cmd, const char *prog, const char **switches, const unsigned int s, unsigned char *dir)
+int exec(const char *raw_cmd, const char *prog, const char **switches, const unsigned int s, unsigned char *dir, unsigned char *pass)
 {
 	const char *ABSS = proc_switches(switches, s);
 
@@ -55,6 +56,8 @@ int exec(const char *raw_cmd, const char *prog, const char **switches, const uns
 		rm(join(switches, s), dir);
 	else if (str_comp(opt_cmd, "wizardsay"))
 		wizard_say(join(switches, s));
+	else if (str_comp(opt_cmd, "chpass"))
+		chpass(pass);
 	else {
 		char *returning_output = malloc(BUFFER);
 		FILE *output;
