@@ -11,6 +11,7 @@
 #include <sys/wait.h>
 
 #include "../utils/len.h"
+#include "../utils/strcpy.h"
 
 #include "../include/token_sep.h"
 #include "../include/executor.h"
@@ -18,6 +19,7 @@
 #define DEFAULT_UN "shyshUser"
 #define SETUP_PROMPT(un, priv) un, priv
 #define MAX_CMD_BUFF 300
+#define MAX_UN_BUFF 30
 #define MAX_PASS_BUFF 30
 
 static char *PRIV(unsigned int c)
@@ -49,10 +51,12 @@ typedef struct user_stct {
 
 int main(void)
 {
-	uinfo ustng = { 1, DEFAULT_UN, malloc(MAX_CMD_BUFF), getcwd(NULL, 1024), malloc(MAX_PASS_BUFF) };
+	uinfo ustng = { 1, malloc(MAX_UN_BUFF), malloc(MAX_CMD_BUFF), getcwd(NULL, 1024), malloc(MAX_PASS_BUFF) };
 
 	printf("Enter a password: ");
 	fgets(ustng.pass, MAX_PASS_BUFF, stdin);
+
+	str_cpy(ustng.un, DEFAULT_UN);
 
 	while (1) {
 		printf("%s%s ", SETUP_PROMPT(ustng.un, PRIV(ustng.priv) == "super user" ? "#" : "$"));
@@ -70,7 +74,7 @@ int main(void)
 			switches[i - 1] = tokens[i];
 		}
 		
-		if (!exec(ustng.cmd, prog, (const char **) switches, size - 1, ustng.dir, ustng.pass))
+		if (!exec(ustng.cmd, prog, (const char **) switches, size - 1, ustng.dir, ustng.un, ustng.pass))
 			break;
 	}
 
