@@ -6,6 +6,7 @@
 #include "../utils/lower.h"
 #include "../utils/strcomp.h"
 #include "../utils/join.h"
+#include "../include/pass_validation.h"
 
 #include "../builtins/echo.h"
 #include "../builtins/clear.h"
@@ -18,8 +19,9 @@
 #include "../builtins/rm.h"
 #include "../builtins/wizardsay.h"
 #include "../builtins/chpass.h"
+#include "../builtins/chuser.h"
 
-int exec(const char *raw_cmd, const char *prog, const char **switches, const unsigned int s, unsigned char *dir, unsigned char *pass)
+int exec(const char *raw_cmd, const char *prog, const char **switches, const unsigned int s, unsigned char *dir, unsigned char *un, unsigned char *pass)
 {
 	const char *ABSS = proc_switches(switches, s);
 
@@ -58,6 +60,12 @@ int exec(const char *raw_cmd, const char *prog, const char **switches, const uns
 		wizard_say(join(switches, s));
 	else if (str_comp(opt_cmd, "chpass"))
 		chpass(pass);
+	else if (str_comp(opt_cmd, "chuser")) {
+		if (pass_validation(pass))
+			chuser(un);
+		else
+			printf("%s\n", WRONG_PASS);
+	}
 	else {
 		char *returning_output = malloc(BUFFER);
 		FILE *output;
