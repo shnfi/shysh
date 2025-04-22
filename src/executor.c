@@ -59,7 +59,10 @@ int exec(const char *raw_cmd, const char *prog, const char **switches, const uns
 	else if (str_comp(opt_cmd, "wizardsay"))
 		wizard_say(join(switches, s));
 	else if (str_comp(opt_cmd, "chpass"))
-		chpass(pass);
+		if (pass_validation(pass))
+			chpass(pass);
+		else
+			printf("%s\n", WRONG_PASS);
 	else if (str_comp(opt_cmd, "chuser")) {
 		if (pass_validation(pass))
 			chuser(un);
