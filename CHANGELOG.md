@@ -53,3 +53,4 @@
 <p>[52] [NEW_CMD] - wrote 'chuser' command to change username</p>
 <p>[53] [NEW_UTIL] - wrote a new helper function to ask for root password and validate it</p>
 <p>[54] [MODIFICATION] - allocate memory for 'un' user variable and pass it to the executor</p>
+<p>[55] [MODIFICATION] - removed the password validation process from the 'chpass' command and do it in the executor</p>
