@@ -67,7 +67,7 @@ int exec(const char *raw_cmd, const char *prog, const char **switches, const uns
 		if (pass_validation(pass))
 			chuser(un);
 		else
-			printf("%s\n", WRONG_PASS);
+			printf("\n%s\n", WRONG_PASS);
 	}
 	else {
 		char *returning_output = malloc(BUFFER);
@@ -77,7 +77,7 @@ int exec(const char *raw_cmd, const char *prog, const char **switches, const uns
 		output = popen(raw_cmd, "r");
 
 		if (output == NULL) {
-		    printf("ERROR WHILE PREPARING THE PIPE\n");
+		    printf("[ERR] error while preparing the pipe!\n");
 			return 1;
 		}
 		else {

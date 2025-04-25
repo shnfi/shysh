@@ -14,4 +14,6 @@ void chuser(unsigned char *un)
 
 	tmp[len(tmp) - 1] = '\0';
 	str_cpy(un, tmp);
+
+	printf("\n[MSG] username has been changed!\n");
 }

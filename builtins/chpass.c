@@ -13,5 +13,5 @@ void chpass(unsigned char *old_p)
 	fgets(tmp, sizeof(tmp), stdin);
 	str_cpy(old_p, tmp);
 
-	printf("\nPassword has been changed!\n");
+	printf("\n[MSG] Password has been changed!\n");
 }
