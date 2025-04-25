@@ -19,6 +19,12 @@ void ls(const char *ABSS, unsigned char *dir)
 		}
 	}
 
-	while ((d = readdir(path)) != NULL)
-		printf("- %s\n", d->d_name);
+	while ((d = readdir(path)) != NULL) {
+		if ((d->d_name[0] == '.' && check_switch(ABSS, 'a')) || (d->d_name[0] != '.')) {
+			printf("- ");
+			if (check_switch(ABSS, 'h'))
+				printf("(%s) ", d->d_type == DT_DIR ? "DRCT" : "FILE");
+			printf("%s\n", d->d_name);
+		}
+	}
 }
