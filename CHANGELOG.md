@@ -57,3 +57,4 @@
 <p>[56] [MODIFICATION] - did some modification on messages and errors</p>
 <p>[57] [NEW_FEATURE] - added switch processing system to the 'ls' builtin command</p>
 <p>[58] [NEW_FUNC] - wrote a function to check a ABSS for a specific switch</p>
+<p>[59] [NEW_FEATURE] - added useability to switches of the 'ls' builtin command</p>
