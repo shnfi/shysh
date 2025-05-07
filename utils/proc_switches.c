@@ -9,9 +9,11 @@ char *proc_switches(const char **switches, const unsigned int s)
 	int k = 0;
 	for (int i = 0; i < s; i++) {
 		for (int j = 0; j < len((char *) switches[i]); j++) {
-			if (switches[i][j] != ' ' && switches[i][j] != '-') {
-				out[k] = switches[i][j];
-				k++;
+			if (switches[i][0] == '-') {
+				if (switches[i][j] != ' ' && switches[i][j] != '-') {
+					out[k] = switches[i][j];
+					k++;
+				}
 			}
 		}
 	}
