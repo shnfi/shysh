@@ -1,15 +1,30 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <dirent.h>
 
 #include "ls.h"
 
+#include "../utils/len.h"
+#include "../utils/strcpy.h"
+
 #include "../include/check_switch.h"
 
-void ls(const char *ABSS, unsigned char *dir)
+void ls(const char *ABSS, const char *name, unsigned char *dir)
 {
 	const unsigned char *valid_switches = "ltrha";
-	DIR *path = opendir(dir);
-	struct dirent *d = readdir(path);
+	char *path = malloc(len(dir) + len(name) + 10);
+	str_cpy(path, dir);
+
+	path[len(path)] = '/';
+
+	int j = 0;
+	for (int i = len(dir); i < len(dir) + len(name); i++) {
+		path[i + 1] = name[j];
+		j++;
+	}
+
+	DIR *path_struct = opendir(path);
+	struct dirent *d = readdir(path_struct);
 
 	char *tmp = (char *) ABSS, c;
 	while (c = *tmp++) {
@@ -19,7 +34,7 @@ void ls(const char *ABSS, unsigned char *dir)
 		}
 	}
 
-	while ((d = readdir(path)) != NULL) {
+	while ((d = readdir(path_struct)) != NULL) {
 		if ((d->d_name[0] == '.' && check_switch(ABSS, 'a')) || (d->d_name[0] != '.')) {
 			printf("- ");
 			if (check_switch(ABSS, 'h'))
