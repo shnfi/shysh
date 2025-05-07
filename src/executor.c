@@ -7,6 +7,7 @@
 #include "../utils/strcomp.h"
 #include "../utils/join.h"
 #include "../include/pass_validation.h"
+#include "../utils/len.h"
 
 #include "../builtins/echo.h"
 #include "../builtins/clear.h"
@@ -20,6 +21,40 @@
 #include "../builtins/wizardsay.h"
 #include "../builtins/chpass.h"
 #include "../builtins/chuser.h"
+
+static char *return_name(const char *str)
+{
+	if (str == "")
+		return ".";
+
+	char *out;
+	char *tmp = str, c;
+	int wsi = -1, i = 0;
+	while (*tmp != '\0')
+		*tmp++;
+	*tmp--;
+
+	while (c = *tmp--) {
+		if (c == ' ') {
+			wsi = i;
+			break;
+		}
+		i++;
+	}
+
+	out = malloc(len(str) - wsi);
+	if (str[0] == '-')
+		for (int j = len(str) - wsi; j < len(str); j++)
+			out[len(out)] = str[j];
+	else
+		for (int j = 0; j < len(str); j++)
+			out[len(out)] = str[j];
+
+	if (str[0] == '-' && (wsi == -1 || out == ""))
+		return ".";
+	
+	return out;
+}
 
 int exec(const char *raw_cmd, const char *prog, const char **switches, const unsigned int s, unsigned char *dir, unsigned char *un, unsigned char *pass)
 {
@@ -43,7 +78,7 @@ int exec(const char *raw_cmd, const char *prog, const char **switches, const uns
 	else if (str_comp(opt_cmd, "clear"))
 		clear();
 	else if (str_comp(opt_cmd, "ls"))
-		ls(ABSS, dir);
+		ls(ABSS, return_name(join(switches, s)), dir);
 	else if (str_comp(opt_cmd, "cd"))
 		cd(dir, join(switches, s));
 	else if (str_comp(opt_cmd, "pwd"))
@@ -55,7 +90,7 @@ int exec(const char *raw_cmd, const char *prog, const char **switches, const uns
 	else if (str_comp(opt_cmd, "touch"))
 		touch(join(switches, s), dir);
 	else if (str_comp(opt_cmd, "rm"))
-		rm(join(switches, s), dir);
+		rm(ABSS, join(switches, s), dir);
 	else if (str_comp(opt_cmd, "wizardsay"))
 		wizard_say(join(switches, s));
 	else if (str_comp(opt_cmd, "chpass"))
