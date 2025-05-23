@@ -3,21 +3,31 @@
 
 #include "rm.h"
 
+#include "../include/check_switch.h"
+
 #include "../utils/len.h"
 #include "../utils/strcpy.h"
 
-void rm(const char *name, unsigned char *dir)
+void rm(const char *ABSS, const char *name, unsigned char *dir)
 {
-	char *path = malloc(len(dir) + len(name) + 10);
+	const unsigned char *valid_switches = "rf";
+	static char *path;
+	path = malloc(len(dir) + len(name) + 1);
 	str_cpy(path, dir);
+
+	char *tmp = (char *) ABSS, c;
+	while (c = *tmp++) {
+		if (!check_switch(valid_switches, c)) {
+			printf("[ERROR] '%c' is not a valid switch for 'ls' command!\n", c);
+			return;
+		}
+	}
 
 	path[len(path)] = '/';
 
-	int j = 0;
-	for (int i = len(dir); i < len(dir) + len(name); i++) {
-		path[i + 1] = name[j];
-		j++;
-	}
+	str_cpy(path + len(dir) + 1, name);
+
+	path[len(path)] = '\0';
 
 	remove(path);
 
