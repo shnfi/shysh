@@ -61,3 +61,6 @@
 <p>[60] [NEW_FEATURE] - feature to use 'ls' command on each directory in the current directory</p>
 <p>[61] [NEW_FEATURE] - wrote a function to return the file/dir name of joined tokens</p>
 <p>[62] [BUG_FIXED] - fixed a bug related to the switch processing</p>
+<p>[63] [BUG FIXED] - fixed a bug in 'ls' command that caused segmentation fault error</p>
+<p>[64] [BUG FIXED] - fixed the bug that caused inserting garbage characters to the name of the file</p>
+<p>[65] [NEW FEATURE] - used 'return_name' helper function to get the file/dir name</p>
