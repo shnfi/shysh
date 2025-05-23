@@ -12,16 +12,13 @@
 void ls(const char *ABSS, const char *name, unsigned char *dir)
 {
 	const unsigned char *valid_switches = "ltrha";
-	char *path = malloc(len(dir) + len(name) + 10);
+	static char *path;
+	path = malloc(len(dir) + len(name) + 10);
 	str_cpy(path, dir);
 
 	path[len(path)] = '/';
 
-	int j = 0;
-	for (int i = len(dir); i < len(dir) + len(name); i++) {
-		path[i + 1] = name[j];
-		j++;
-	}
+	str_cpy(path + len(dir) + 1, name);
 
 	DIR *path_struct = opendir(path);
 	struct dirent *d = readdir(path_struct);
