@@ -90,7 +90,7 @@ int exec(const char *raw_cmd, const char *prog, const char **switches, const uns
 	else if (str_comp(opt_cmd, "touch"))
 		touch(join(switches, s), dir);
 	else if (str_comp(opt_cmd, "rm"))
-		rm(ABSS, join(switches, s), dir);
+		rm(ABSS, return_name(join(switches, s)), dir);
 	else if (str_comp(opt_cmd, "wizardsay"))
 		wizard_say(join(switches, s));
 	else if (str_comp(opt_cmd, "chpass"))
